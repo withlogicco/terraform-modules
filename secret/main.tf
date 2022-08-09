@@ -17,3 +17,20 @@ resource "aws_secretsmanager_secret_version" "main" {
     ]
   }
 }
+
+data "aws_iam_policy_document" "main" {
+  statement {
+    effect = "Allow"
+    actions = [
+      "secretsmanager:GetSecretValue",
+    ]
+    resources = [
+      aws_secretsmanager_secret.main.arn,
+    ]
+  }
+}
+
+resource "aws_iam_policy" "main" {
+  name   = "read-secret-${aws_secretsmanager_secret.main.name}"
+  policy = data.aws_iam_policy_document.main.json
+}
