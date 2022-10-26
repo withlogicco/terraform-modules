@@ -53,6 +53,20 @@ resource "aws_subnet" "private_secondary" {
   tags              = local.tags
 }
 
+resource "aws_subnet" "public_primary" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.3.0/24"
+  availability_zone = data.aws_availability_zones.available.names[2]
+  tags              = local.tags
+}
+
+resource "aws_subnet" "public_secondary" {
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.0.4.0/24"
+  availability_zone = data.aws_availability_zones.available.names[3]
+  tags              = local.tags
+}
+
 resource "aws_security_group" "vpc" {
   name   = "${var.project}-${var.environment}-vpc"
   vpc_id = aws_vpc.main.id
