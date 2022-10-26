@@ -3,7 +3,7 @@ data "aws_availability_zones" "available" {
 }
 
 resource "aws_vpc" "main" {
-  cidr_block           = "10.0.0.0/16"
+  cidr_block           = var.vpc_main_cidr_block
   enable_dns_hostnames = true
   enable_dns_support   = true
   tags                 = local.tags
@@ -41,28 +41,28 @@ resource "aws_main_route_table_association" "default" {
 
 resource "aws_subnet" "private_primary" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.0.1.0/24"
+  cidr_block        = cidrsubnet(var.vpc_main_cidr_block, 8, 1)
   availability_zone = data.aws_availability_zones.available.names[0]
   tags              = local.tags
 }
 
 resource "aws_subnet" "private_secondary" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.0.2.0/24"
+  cidr_block        = cidrsubnet(var.vpc_main_cidr_block, 8, 2)
   availability_zone = data.aws_availability_zones.available.names[1]
   tags              = local.tags
 }
 
 resource "aws_subnet" "public_primary" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.0.3.0/24"
+  cidr_block        = cidrsubnet(var.vpc_main_cidr_block, 8, 3)
   availability_zone = data.aws_availability_zones.available.names[2]
   tags              = local.tags
 }
 
 resource "aws_subnet" "public_secondary" {
   vpc_id            = aws_vpc.main.id
-  cidr_block        = "10.0.4.0/24"
+  cidr_block        = cidrsubnet(var.vpc_main_cidr_block, 8, 4)
   availability_zone = data.aws_availability_zones.available.names[3]
   tags              = local.tags
 }
