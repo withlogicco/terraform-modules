@@ -39,14 +39,14 @@ resource "aws_main_route_table_association" "default" {
   route_table_id = aws_route_table.main.id
 }
 
-resource "aws_subnet" "primary" {
+resource "aws_subnet" "private_primary" {
   vpc_id            = aws_vpc.main.id
   cidr_block        = "10.0.1.0/24"
   availability_zone = data.aws_availability_zones.available.names[0]
   tags = local.tags
 }
 
-resource "aws_subnet" "secondary" {
+resource "aws_subnet" "private_secondary" {
   vpc_id            = aws_vpc.main.id
   cidr_block        = "10.0.2.0/24"
   availability_zone = data.aws_availability_zones.available.names[1]
