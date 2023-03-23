@@ -83,7 +83,7 @@ resource "aws_lb" "main" {
   name               = "${var.project}-${var.environment}"
   internal           = false
   load_balancer_type = "application"
-  subnets            = [var.subnet_private_primary, var.subnet_private_secondary, var.subnet_public_primary, var.subnet_public_secondary]
+  subnets            = var.subnet_ids
   security_groups    = [aws_security_group.lb.id]
   idle_timeout       = 120
 

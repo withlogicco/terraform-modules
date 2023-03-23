@@ -7,10 +7,7 @@ variable "lb_domains" {
   default = []
 }
 variable "route53_zone" {}
-variable "subnet_private_primary" {}
-variable "subnet_private_secondary" {}
-variable "subnet_public_primary" {}
-variable "subnet_public_secondary" {}
+variable "subnet_ids" {}
 variable "security_policy" {
   type    = string
   default = "ELBSecurityPolicy-FS-1-2-Res-2020-10"
