@@ -58,7 +58,7 @@ resource "aws_subnet" "private_secondary" {
 resource "aws_subnet" "public_primary" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = cidrsubnet(var.vpc_main_cidr_block, 8, 3)
-  availability_zone       = data.aws_availability_zones.available.names[2]
+  availability_zone       = data.aws_availability_zones.available.names[0]
   map_public_ip_on_launch = true
   tags                    = local.tags
 }
@@ -66,7 +66,7 @@ resource "aws_subnet" "public_primary" {
 resource "aws_subnet" "public_secondary" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = cidrsubnet(var.vpc_main_cidr_block, 8, 4)
-  availability_zone       = data.aws_availability_zones.available.names[3]
+  availability_zone       = data.aws_availability_zones.available.names[1]
   map_public_ip_on_launch = true
   tags                    = local.tags
 }
