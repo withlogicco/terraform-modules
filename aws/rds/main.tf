@@ -30,7 +30,7 @@ resource "aws_db_instance" "main" {
   allocated_storage         = 10
   max_allocated_storage     = 100
   engine                    = "postgres"
-  engine_version            = "14.3"
+  engine_version            = var.engine_version
   instance_class            = var.rds_instance_class
   db_name                   = var.project
   username                  = "${var.project}_root"
