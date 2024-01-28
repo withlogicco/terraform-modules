@@ -1,7 +1,7 @@
 variable "project" {
   type        = string
   description = "The name of the project using this secret (e.g. my-app)"
-  nullable    = tru
+  nullable    = true
 }
 variable "environment" {
   type        = string
