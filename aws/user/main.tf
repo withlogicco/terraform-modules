@@ -3,10 +3,10 @@ resource "aws_iam_user" "main" {
 }
 
 resource "aws_iam_user_policy_attachment" "main" {
-  for_each = toset(var.policies)
+  count = length(var.policies)
 
   user       = aws_iam_user.main.name
-  policy_arn = each.key
+  policy_arn = var.policies[count.index]
 }
 
 resource "aws_iam_user_group_membership" "main" {
