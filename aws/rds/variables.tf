@@ -8,5 +8,5 @@ variable "rds_instance_class" {
   default = "db.t3.micro"
 }
 variable "engine_version" {
-  default = "14.7"
+  default = "16.4"
 }
