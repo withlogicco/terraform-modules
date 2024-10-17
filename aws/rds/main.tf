@@ -21,13 +21,13 @@ resource "random_password" "main" {
 
 resource "aws_db_parameter_group" "main" {
   name   = local.name
-  family = "postgres14"
+  family = "postgres16"
   tags   = local.tags
 }
 
 resource "aws_db_instance" "main" {
   identifier                = local.name
-  allocated_storage         = 10
+  allocated_storage         = 20
   max_allocated_storage     = 100
   engine                    = "postgres"
   engine_version            = var.engine_version
