@@ -18,12 +18,6 @@ variable "route53_zone" {
   default     = null
 }
 
-variable "cloudflare_zone" {
-  type        = string
-  description = "Cloudflare zone ID for the SES domain verification"
-  default     = null
-}
-
 
 variable "mail_from_domain" {
   default  = null
