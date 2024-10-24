@@ -13,10 +13,10 @@ locals {
     }
   ]
   validation_dns_records_dkim = [
-    for i in range(length(aws_ses_domain_dkim.example.dkim_tokens)) : {
-      name     = "${aws_ses_domain_dkim.example.dkim_tokens[i]}._domainkey.${var.ses_domain}"
+    for i in range(length(aws_ses_domain_dkim.dkim.dkim_tokens)) : {
+      name     = "${aws_ses_domain_dkim.dkim.dkim_tokens[i]}._domainkey.${var.ses_domain}"
       type     = "CNAME"
-      value    = "${aws_ses_domain_dkim.example.dkim_tokens[i]}.dkim.amazonses.com"
+      value    = "${aws_ses_domain_dkim.dkim.dkim_tokens[i]}.dkim.amazonses.com"
       priority = null
     }
   ]
