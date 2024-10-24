@@ -24,7 +24,7 @@ locals {
     {
       name     = var.mail_from_domain
       type     = "MX"
-      value    = "feedback-smtp.${var.region}.amazonaws.com"
+      value    = "feedback-smtp.${var.region}.amazonses.com"
       priority = 10,
     }
   ])
