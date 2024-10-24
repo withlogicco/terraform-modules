@@ -1,6 +1,10 @@
 variable "project" {}
 variable "environment" {}
 variable "domain" {}
+
+variable "name" {
+  default = null
+}
 variable "subnet_primary" {}
 variable "subnet_secondary" {}
 variable "security_group" {}
@@ -16,6 +20,10 @@ variable "backup_retention_period" {
 }
 
 variable "backup_window" {
+  default = null
+}
+
+variable "snapshot_identifier" {
   default = null
 }
 

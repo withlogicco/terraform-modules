@@ -1,5 +1,5 @@
 locals {
-  name = "${var.project}-${var.environment}"
+  name = var.name != null ? var.name : "${var.project}-${var.environment}"
   tags = {
     Environment = var.environment
     Project     = var.project
@@ -27,6 +27,7 @@ resource "aws_db_parameter_group" "main" {
 
 resource "aws_db_instance" "main" {
   identifier                = local.name
+  snapshot_identifier       = var.snapshot_identifier
   allocated_storage         = 20
   max_allocated_storage     = 100
   engine                    = "postgres"
