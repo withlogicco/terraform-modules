@@ -39,7 +39,7 @@ resource "aws_db_instance" "main" {
   parameter_group_name      = aws_db_parameter_group.main.name
   final_snapshot_identifier = "${local.name}-final"
   backup_retention_period   = var.backup_retention_period
-  backup_window             = var.backup_window != null ? var.backup_window : (var.backup_retention_period != 0 ? "00:00-02:00" : null)
+  backup_window             = var.backup_window != null ? var.backup_window : (var.backup_retention_period != 0 ? "00:00-01:00" : null)
   vpc_security_group_ids = [
     var.security_group,
   ]
