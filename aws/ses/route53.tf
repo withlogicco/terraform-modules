@@ -25,6 +25,7 @@ resource "aws_route53_record" "domain_amazonses_feedback_mx_record" {
   records = ["10 feedback-smtp.${var.region}.amazonaws.com"]
   ttl     = 60
 }
+
 resource "aws_route53_record" "domain_amazonses_feedback_txt_record" {
   count = (var.route53_zone != null && var.mail_from_domain != null) ? 1 : 0
 
