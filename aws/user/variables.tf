@@ -15,3 +15,10 @@ variable "groups" {
   description = "The names of the groups of make the user a member of"
   default     = []
 }
+
+
+variable "tags" {
+  type        = object
+  description = "Tags of the user to create"
+  default     = {}
+}
