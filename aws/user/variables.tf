@@ -18,7 +18,7 @@ variable "groups" {
 
 
 variable "tags" {
-  type        = object
+  type        = map(string)
   description = "Tags of the user to create"
   default     = {}
 }
