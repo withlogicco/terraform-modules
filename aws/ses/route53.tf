@@ -8,4 +8,5 @@ resource "aws_route53_record" "ses_validation_record" {
     "${local.validation_dns_records[count.index].priority} ${local.validation_dns_records[count.index].value}" :
     local.validation_dns_records[count.index].value
   ]
+  ttl = 60
 }
