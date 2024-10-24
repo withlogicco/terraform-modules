@@ -18,3 +18,7 @@ variable "backup_retention_period" {
 variable "backup_window" {
   default = null
 }
+
+variable "storage_encrypted" {
+  default = false
+}
