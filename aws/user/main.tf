@@ -1,5 +1,6 @@
 resource "aws_iam_user" "main" {
   name = var.name
+  tags = var.tags
 }
 
 resource "aws_iam_user_policy_attachment" "main" {
