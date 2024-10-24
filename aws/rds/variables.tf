@@ -10,3 +10,11 @@ variable "rds_instance_class" {
 variable "engine_version" {
   default = "16.4"
 }
+
+variable "backup_retention_period" {
+  default = 0
+}
+
+variable "backup_window" {
+  default = null
+}
