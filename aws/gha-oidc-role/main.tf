@@ -28,9 +28,9 @@ resource "aws_iam_role" "main" {
   tags               = var.tags
 }
 
-resource "aws_iam_user_policy_attachment" "main" {
+resource "aws_iam_role_policy_attachment" "main" {
   count = length(var.policies)
 
-  user       = aws_iam_user.main.name
+  role       = aws_iam_role.main.name
   policy_arn = var.policies[count.index]
 }
