@@ -41,7 +41,7 @@ data "aws_iam_policy_document" "read_write" {
       "ecr:UploadLayerPart",
       "ecr:CompleteLayerUpload"
     ]
-    resources = [aws_ecr_repository.example.arn]
+    resources = [aws_ecr_repository.main.arn]
     effect    = "Allow"
   }
 
