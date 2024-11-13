@@ -7,7 +7,9 @@ variable "name" {
 variable "policies" {
   type        = list(string)
   description = "The ARNs of the IAM Policies to attach to the IAM role"
-  default     = []
+  default = [
+    "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
+  ]
 }
 
 
