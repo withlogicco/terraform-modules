@@ -10,3 +10,9 @@ variable "rds_instance_class" {
 variable "engine_version" {
   default = "16.4"
 }
+
+variable "publicly_accessible" {
+  default  = false
+  nullable = false
+  type     = bool
+}

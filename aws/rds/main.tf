@@ -41,6 +41,7 @@ resource "aws_db_instance" "main" {
     var.security_group,
   ]
   db_subnet_group_name = aws_db_subnet_group.main.name
+  publicly_accessible  = var.publicly_accessible
   skip_final_snapshot  = false
   tags                 = local.tags
 
