@@ -16,3 +16,18 @@ variable "publicly_accessible" {
   nullable = false
   type     = bool
 }
+
+variable "identifier" {
+  nullable = true
+  type     = string
+}
+
+variable "db_name" {
+  nullable = true
+  type     = string
+}
+
+variable "username" {
+  nullable = true
+  type     = string
+}

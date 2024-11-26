@@ -26,14 +26,14 @@ resource "aws_db_parameter_group" "main" {
 }
 
 resource "aws_db_instance" "main" {
-  identifier                = local.name
+  identifier                = var.identifier ? var.identifier : local.name
   allocated_storage         = 20
   max_allocated_storage     = 100
   engine                    = "postgres"
   engine_version            = var.engine_version
   instance_class            = var.rds_instance_class
-  db_name                   = var.project
-  username                  = "${var.project}_root"
+  db_name                   = var.db_name ? var.db_name : var.project
+  username                  = var.username ? var.username : "${var.project}_root"
   password                  = random_password.main.result
   parameter_group_name      = aws_db_parameter_group.main.name
   final_snapshot_identifier = "${local.name}-final"
