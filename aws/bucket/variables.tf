@@ -10,6 +10,12 @@ variable "versioning_enabled" {
   default     = true
 }
 
+variable "public" {
+  description = "Whether the S3 bucket should allow public access"
+  type        = bool
+  default     = false
+}
+
 variable "tags" {
   description = "The tags to add to all resources"
   type        = map(string)
