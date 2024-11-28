@@ -3,6 +3,16 @@ output "arn" {
   value       = aws_lb.main.arn
 }
 
+output "zone_id" {
+  description = "The zone ID of the ALB"
+  value       = aws_lb.main.zone_id
+}
+
+output "dns_name" {
+  description = "The zone DNS name of the ALB"
+  value       = aws_lb.main.dns_name
+}
+
 output "security_group" {
   description = "ARN of the security group created for the ALB"
   value       = aws_security_group.lb.arn
