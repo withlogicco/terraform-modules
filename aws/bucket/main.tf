@@ -56,10 +56,10 @@ data "aws_iam_policy_document" "private_read_write" {
     sid    = "PrivateReadWrite"
     effect = "Allow"
     actions = [
-      "s3:GetObject",
-      "s3:PutObject",
+      "s3:Get*",
+      "s3:Put*",
+      "s3:List*",
       "s3:DeleteObject",
-      "s3:ListBucket"
     ]
     resources = [
       "${aws_s3_bucket.main.arn}",
