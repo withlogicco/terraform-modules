@@ -44,10 +44,6 @@ data "aws_iam_policy_document" "public_read" {
     resources = [
       "${aws_s3_bucket.main.arn}/*",
     ]
-    principals {
-      type        = "*"
-      identifiers = ["*"]
-    }
   }
 }
 
@@ -65,10 +61,6 @@ data "aws_iam_policy_document" "private_read_write" {
       "${aws_s3_bucket.main.arn}",
       "${aws_s3_bucket.main.arn}/*"
     ]
-    principals {
-      type        = "AWS"
-      identifiers = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"]
-    }
   }
 }
 
