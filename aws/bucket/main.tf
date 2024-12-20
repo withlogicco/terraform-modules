@@ -1,3 +1,5 @@
+data "aws_caller_identity" "current" {}
+
 resource "aws_s3_bucket" "main" {
   bucket = var.name
   tags   = var.tags
@@ -81,6 +83,10 @@ data "aws_iam_policy_document" "read_only" {
       aws_s3_bucket.main.arn,
       "${aws_s3_bucket.main.arn}/*",
     ]
+    principals {
+      type        = "*"
+      identifiers = ["*"]
+    }
     effect = "Allow"
   }
 }
@@ -94,9 +100,9 @@ resource "aws_iam_policy" "read_only" {
 data "aws_iam_policy_document" "read_write" {
   statement {
     actions = [
-      "s3:GetObject",
-      "s3:ListBucket",
-      "s3:PutObject",
+      "s3:Get*",
+      "s3:List*",
+      "s3:Put*",
       "s3:DeleteObject",
     ]
     resources = [
@@ -104,6 +110,11 @@ data "aws_iam_policy_document" "read_write" {
       "${aws_s3_bucket.main.arn}/*",
     ]
     effect = "Allow"
+
+    principals {
+      type        = "AWS"
+      identifiers = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"]
+    }
   }
 }
 
