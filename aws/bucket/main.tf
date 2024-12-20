@@ -66,7 +66,7 @@ data "aws_iam_policy_document" "private_read_write" {
 
 resource "aws_s3_bucket_policy" "main" {
   bucket = aws_s3_bucket.main.id
-  policy = (var.public) ? data.aws_iam_policy_document.s3_public_read.json : data.aws_iam_policy_document.private_read_write.json
+  policy = (var.public) ? data.aws_iam_policy_document.public_read.json : data.aws_iam_policy_document.private_read_write.json
 
   depends_on = [aws_s3_bucket_public_access_block.main]
 }
