@@ -31,3 +31,11 @@ variable "username" {
   nullable = true
   type     = string
 }
+
+variable "db_parameters" {
+  type = list(object({
+    name  = string
+    value = string
+  }))
+  default = []
+}

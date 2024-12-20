@@ -23,6 +23,14 @@ resource "aws_db_parameter_group" "main" {
   name   = local.name
   family = "postgres16"
   tags   = local.tags
+
+  dynamic "parameter" {
+    for_each = var.db_parameters
+    content {
+      name  = parameter.value.name
+      value = parameter.value.value
+    }
+  }
 }
 
 resource "aws_db_instance" "main" {
