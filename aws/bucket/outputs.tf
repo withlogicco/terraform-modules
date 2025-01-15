@@ -9,3 +9,11 @@ output "iam_policy_read_only" {
 output "iam_policy_read_write" {
   value = aws_iam_policy.read_write.arn
 }
+
+output "name" {
+  value = aws_s3_bucket.main.bucket
+}
+
+output "regional_domain_name" {
+  value = aws_s3_bucket.main.regional_domain_name
+}
