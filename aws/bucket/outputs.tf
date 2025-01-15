@@ -14,6 +14,10 @@ output "name" {
   value = aws_s3_bucket.main.bucket
 }
 
+output "domain_name" {
+  value = aws_s3_bucket.main.bucket_domain_name
+}
+
 output "regional_domain_name" {
-  value = aws_s3_bucket.main.regional_domain_name
+  value = aws_s3_bucket.main.bucket_regional_domain_name
 }
