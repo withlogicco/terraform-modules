@@ -16,8 +16,8 @@ variable "public" {
   default     = false
 }
 
-variable "bucket_policy" {
-  description = "A bucket policy document to attach to the bucket"
+variable "policy" {
+  description = "A policy document to attach to the bucket"
   type = object({
     Version = string
     Statement = list(object({
