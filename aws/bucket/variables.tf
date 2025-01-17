@@ -18,17 +18,8 @@ variable "public" {
 
 variable "policy" {
   description = "A policy document to attach to the bucket"
-  type = object({
-    Version = string
-    Statement = list(object({
-      Sid       = string
-      Effect    = string
-      Principal = map(string)
-      Action    = list(string)
-      Resource  = list(string)
-    }))
-  })
-  default = null
+  type        = string
+  default     = null
 }
 
 variable "tags" {
