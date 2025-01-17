@@ -16,6 +16,12 @@ variable "public" {
   default     = false
 }
 
+variable "bucket_policy" {
+  description = "A bucket policy document to attach to the bucket"
+  type        = object
+  default     = null
+}
+
 variable "tags" {
   description = "The tags to add to all resources"
   type        = map(string)
