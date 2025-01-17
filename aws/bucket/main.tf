@@ -1,6 +1,6 @@
 data "aws_caller_identity" "current" {}
 locals {
-  policy = (var.bucket_policy != null) ? var.bucket_policy : (var.public) ? data.aws_iam_policy_document.public_read.json : data.aws_iam_policy_document.private_read_write.json
+  policy = (var.policy != null) ? var.policy : (var.public) ? data.aws_iam_policy_document.public_read.json : data.aws_iam_policy_document.private_read_write.json
 }
 
 resource "aws_s3_bucket" "main" {
